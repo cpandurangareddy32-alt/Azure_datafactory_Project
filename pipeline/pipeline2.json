@@ -1,0 +1,67 @@
+{
+	"name": "pipeline2",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data6",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"sqlReaderQuery": "SELECT\n    N.NATIONKEY,\n    N.NAME,\n    R.REGIONKEY,\n    R.NAME  AS REGION_NAME,\n    GETDATE() AS INSERT_DATE\nFROM\n    STG.NATION_cpandu N\nJOIN\n   STG.REGION_cpandu R ON N.REGIONKEY = R.REGIONKEY;\n",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "delete from ODS.NATION_REGION_DETAILS_cpandu;",
+						"writeBehavior": "insert",
+						"sqlWriterUseTableLock": false,
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "ds_raw_table_cpandu",
+						"type": "DatasetReference",
+						"parameters": {
+							"schema_name": "STG",
+							"table_name": "nation_cpandu"
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "ds_raw_table_cpandu",
+						"type": "DatasetReference",
+						"parameters": {
+							"schema_name": "ODS",
+							"table_name": "NATION_REGION_DETAILS_cpandu"
+						}
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2026-08-02T04:26:19Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
