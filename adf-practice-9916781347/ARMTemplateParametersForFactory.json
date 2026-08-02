@@ -1,0 +1,39 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adf-practice-9916781347"
+		},
+		"AzureSqlDatabase1_password": {
+			"value": ""
+		},
+		"linked_service_for_datalake_accountKey": {
+			"value": ""
+		},
+		"linked_service_for_sqlserver_password": {
+			"value": ""
+		},
+		"AzureSqlDatabase1_properties_typeProperties_server": {
+			"value": "sqlserver9916.database.windows.net"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_database": {
+			"value": "Practice_database"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_userName": {
+			"value": "sqlserver9916"
+		},
+		"linked_service_for_datalake_properties_typeProperties_url": {
+			"value": "https://reddy6301.dfs.core.windows.net/"
+		},
+		"linked_service_for_sqlserver_properties_typeProperties_server": {
+			"value": "sql-server9916.database.windows.net"
+		},
+		"linked_service_for_sqlserver_properties_typeProperties_database": {
+			"value": "project_database"
+		},
+		"linked_service_for_sqlserver_properties_typeProperties_userName": {
+			"value": "sql-server9916"
+		}
+	}
+}
