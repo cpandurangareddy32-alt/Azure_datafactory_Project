@@ -2,14 +2,14 @@
 	"name": "ds_source_folder_cpandu",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "Linked_service_for_datalake",
+			"referenceName": "ls_blob_storage_cpandu",
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
-			"src_dir": {
+			"container_dir": {
 				"type": "string"
 			},
-			"src_container": {
+			"srcfile_dir": {
 				"type": "string"
 			}
 		},
@@ -19,11 +19,11 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"folderPath": {
-					"value": "@dataset().src_dir",
+					"value": "@dataset().srcfile_dir",
 					"type": "Expression"
 				},
 				"fileSystem": {
-					"value": "@dataset().src_container",
+					"value": "@dataset().container_dir",
 					"type": "Expression"
 				}
 			},
