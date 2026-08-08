@@ -28,36 +28,8 @@
 						"sqlWriterUseTableLock": false,
 						"disableMetricsCollection": false
 					},
-					"enableStaging": false,
-					"translator": {
-						"type": "TabularTranslator",
-						"typeConversion": true,
-						"typeConversionSettings": {
-							"allowDataTruncation": true,
-							"treatBooleanAsNumber": false
-						}
-					}
-				},
-				"inputs": [
-					{
-						"referenceName": "ds_raw_table_cpandu",
-						"type": "DatasetReference",
-						"parameters": {
-							"schema_nm": "STG",
-							"table_nm": "customer"
-						}
-					}
-				],
-				"outputs": [
-					{
-						"referenceName": "ds_raw_table_cpandu",
-						"type": "DatasetReference",
-						"parameters": {
-							"schema_nm": "ODS",
-							"table_nm": "CUSTOMER"
-						}
-					}
-				]
+					"enableStaging": false
+				}
 			},
 			{
 				"name": "Copy data2",
@@ -92,36 +64,8 @@
 						"sqlWriterUseTableLock": false,
 						"disableMetricsCollection": false
 					},
-					"enableStaging": false,
-					"translator": {
-						"type": "TabularTranslator",
-						"typeConversion": true,
-						"typeConversionSettings": {
-							"allowDataTruncation": true,
-							"treatBooleanAsNumber": false
-						}
-					}
-				},
-				"inputs": [
-					{
-						"referenceName": "ds_raw_table_cpandu",
-						"type": "DatasetReference",
-						"parameters": {
-							"schema_nm": "STG",
-							"table_nm": "orders"
-						}
-					}
-				],
-				"outputs": [
-					{
-						"referenceName": "ds_raw_table_cpandu",
-						"type": "DatasetReference",
-						"parameters": {
-							"schema_nm": "ODS",
-							"table_nm": "orders"
-						}
-					}
-				]
+					"enableStaging": false
+				}
 			},
 			{
 				"name": "Copy data3",
@@ -156,36 +100,8 @@
 						"sqlWriterUseTableLock": false,
 						"disableMetricsCollection": false
 					},
-					"enableStaging": false,
-					"translator": {
-						"type": "TabularTranslator",
-						"typeConversion": true,
-						"typeConversionSettings": {
-							"allowDataTruncation": true,
-							"treatBooleanAsNumber": false
-						}
-					}
-				},
-				"inputs": [
-					{
-						"referenceName": "ds_raw_table_cpandu",
-						"type": "DatasetReference",
-						"parameters": {
-							"schema_nm": "STG",
-							"table_nm": "part"
-						}
-					}
-				],
-				"outputs": [
-					{
-						"referenceName": "ds_raw_table_cpandu",
-						"type": "DatasetReference",
-						"parameters": {
-							"schema_nm": "ODS",
-							"table_nm": "part"
-						}
-					}
-				]
+					"enableStaging": false
+				}
 			},
 			{
 				"name": "Copy data4",
@@ -220,36 +136,8 @@
 						"sqlWriterUseTableLock": false,
 						"disableMetricsCollection": false
 					},
-					"enableStaging": false,
-					"translator": {
-						"type": "TabularTranslator",
-						"typeConversion": true,
-						"typeConversionSettings": {
-							"allowDataTruncation": true,
-							"treatBooleanAsNumber": false
-						}
-					}
-				},
-				"inputs": [
-					{
-						"referenceName": "ds_raw_table_cpandu",
-						"type": "DatasetReference",
-						"parameters": {
-							"schema_nm": "STG",
-							"table_nm": "supplier"
-						}
-					}
-				],
-				"outputs": [
-					{
-						"referenceName": "ds_raw_table_cpandu",
-						"type": "DatasetReference",
-						"parameters": {
-							"schema_nm": "ODS",
-							"table_nm": "supplier"
-						}
-					}
-				]
+					"enableStaging": false
+				}
 			},
 			{
 				"name": "Copy data5",
@@ -284,36 +172,8 @@
 						"sqlWriterUseTableLock": false,
 						"disableMetricsCollection": false
 					},
-					"enableStaging": false,
-					"translator": {
-						"type": "TabularTranslator",
-						"typeConversion": true,
-						"typeConversionSettings": {
-							"allowDataTruncation": true,
-							"treatBooleanAsNumber": false
-						}
-					}
-				},
-				"inputs": [
-					{
-						"referenceName": "ds_raw_table_cpandu",
-						"type": "DatasetReference",
-						"parameters": {
-							"schema_nm": "STG",
-							"table_nm": "lineitem"
-						}
-					}
-				],
-				"outputs": [
-					{
-						"referenceName": "ds_raw_table_cpandu",
-						"type": "DatasetReference",
-						"parameters": {
-							"schema_nm": "ODS",
-							"table_nm": "LINEITEM"
-						}
-					}
-				]
+					"enableStaging": false
+				}
 			},
 			{
 				"name": "Copy data6",
@@ -348,36 +208,8 @@
 						"sqlWriterUseTableLock": false,
 						"disableMetricsCollection": false
 					},
-					"enableStaging": false,
-					"translator": {
-						"type": "TabularTranslator",
-						"typeConversion": true,
-						"typeConversionSettings": {
-							"allowDataTruncation": true,
-							"treatBooleanAsNumber": false
-						}
-					}
-				},
-				"inputs": [
-					{
-						"referenceName": "ds_raw_table_cpandu",
-						"type": "DatasetReference",
-						"parameters": {
-							"schema_nm": "STG",
-							"table_nm": "nation"
-						}
-					}
-				],
-				"outputs": [
-					{
-						"referenceName": "ds_raw_table_cpandu",
-						"type": "DatasetReference",
-						"parameters": {
-							"schema_nm": "ODS",
-							"table_nm": "NATION_REGION_DETAILS"
-						}
-					}
-				]
+					"enableStaging": false
+				}
 			}
 		],
 		"parameters": {

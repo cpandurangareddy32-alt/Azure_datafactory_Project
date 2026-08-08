@@ -96,15 +96,7 @@
 									"sqlWriterUseTableLock": false,
 									"disableMetricsCollection": false
 								},
-								"enableStaging": false,
-								"translator": {
-									"type": "TabularTranslator",
-									"typeConversion": true,
-									"typeConversionSettings": {
-										"allowDataTruncation": true,
-										"treatBooleanAsNumber": false
-									}
-								}
+								"enableStaging": false
 							},
 							"inputs": [
 								{
@@ -117,22 +109,6 @@
 										},
 										"file": {
 											"value": "@item().name",
-											"type": "Expression"
-										}
-									}
-								}
-							],
-							"outputs": [
-								{
-									"referenceName": "ds_raw_table_cpandu",
-									"type": "DatasetReference",
-									"parameters": {
-										"schema_nm": {
-											"value": "@pipeline().parameters.schema_name",
-											"type": "Expression"
-										},
-										"table_nm": {
-											"value": "@toUpper(split(item().name, '.')[0])",
 											"type": "Expression"
 										}
 									}
