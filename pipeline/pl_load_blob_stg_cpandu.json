@@ -16,19 +16,20 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "ds_source_folder_cpandu",
+						"referenceName": "ds_source_folder_accrossaccountr",
 						"type": "DatasetReference",
 						"parameters": {
-							"container_dir": "source",
-							"srcfile_dir": "files_dir"
+							"container": {
+								"value": "@pipeline().parameters.container",
+								"type": "Expression"
+							}
 						}
 					},
 					"fieldList": [
 						"childItems"
 					],
 					"storeSettings": {
-						"type": "AzureBlobFSReadSettings",
-						"recursive": true,
+						"type": "AzureBlobStorageReadSettings",
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {
@@ -80,7 +81,7 @@
 										}
 									],
 									"storeSettings": {
-										"type": "AzureBlobFSReadSettings",
+										"type": "AzureBlobStorageReadSettings",
 										"recursive": true,
 										"enablePartitionDiscovery": false
 									},
@@ -106,18 +107,14 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "ds_source_file_cpandu",
+									"referenceName": "ds_source_file_acrossaccount",
 									"type": "DatasetReference",
 									"parameters": {
 										"container": {
 											"value": "@pipeline().parameters.container",
 											"type": "Expression"
 										},
-										"src_dir": {
-											"value": "@pipeline().parameters.source_dir",
-											"type": "Expression"
-										},
-										"file_nm": {
+										"file": {
 											"value": "@item().name",
 											"type": "Expression"
 										}
