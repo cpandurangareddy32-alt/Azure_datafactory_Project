@@ -41,21 +41,13 @@
 				"inputs": [
 					{
 						"referenceName": "ds_raw_table_cpandu",
-						"type": "DatasetReference",
-						"parameters": {
-							"schema_name": "STG",
-							"table_name": "nation_cpandu"
-						}
+						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
 						"referenceName": "ds_raw_table_cpandu",
-						"type": "DatasetReference",
-						"parameters": {
-							"schema_name": "ODS",
-							"table_name": "NATION_REGION_DETAILS_cpandu"
-						}
+						"type": "DatasetReference"
 					}
 				]
 			}
