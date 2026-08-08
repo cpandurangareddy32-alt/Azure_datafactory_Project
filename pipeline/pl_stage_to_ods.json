@@ -41,13 +41,21 @@
 				"inputs": [
 					{
 						"referenceName": "ds_raw_table_cpandu",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"schema_nm": "STG",
+							"table_nm": "customer"
+						}
 					}
 				],
 				"outputs": [
 					{
 						"referenceName": "ds_raw_table_cpandu",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"schema_nm": "ODS",
+							"table_nm": "CUSTOMERS"
+						}
 					}
 				]
 			},
@@ -97,13 +105,21 @@
 				"inputs": [
 					{
 						"referenceName": "ds_raw_table_cpandu",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"schema_nm": "STG",
+							"table_nm": "oraders"
+						}
 					}
 				],
 				"outputs": [
 					{
 						"referenceName": "ds_raw_table_cpandu",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"schema_nm": "ODS",
+							"table_nm": "orders"
+						}
 					}
 				]
 			},
@@ -153,13 +169,21 @@
 				"inputs": [
 					{
 						"referenceName": "ds_raw_table_cpandu",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"schema_nm": "STG",
+							"table_nm": "part"
+						}
 					}
 				],
 				"outputs": [
 					{
 						"referenceName": "ds_raw_table_cpandu",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"schema_nm": "ODS",
+							"table_nm": "part"
+						}
 					}
 				]
 			},
@@ -209,13 +233,21 @@
 				"inputs": [
 					{
 						"referenceName": "ds_raw_table_cpandu",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"schema_nm": "STG",
+							"table_nm": "supplier"
+						}
 					}
 				],
 				"outputs": [
 					{
 						"referenceName": "ds_raw_table_cpandu",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"schema_nm": "ODS",
+							"table_nm": "supplier"
+						}
 					}
 				]
 			},
@@ -265,13 +297,21 @@
 				"inputs": [
 					{
 						"referenceName": "ds_raw_table_cpandu",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"schema_nm": "STG",
+							"table_nm": "lineitem"
+						}
 					}
 				],
 				"outputs": [
 					{
 						"referenceName": "ds_raw_table_cpandu",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"schema_nm": "ODS",
+							"table_nm": "LINEITEM"
+						}
 					}
 				]
 			},
@@ -321,13 +361,21 @@
 				"inputs": [
 					{
 						"referenceName": "ds_raw_table_cpandu",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"schema_nm": "STG",
+							"table_nm": "nation"
+						}
 					}
 				],
 				"outputs": [
 					{
 						"referenceName": "ds_raw_table_cpandu",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"schema_nm": "ODS",
+							"table_nm": "NATION_REGION_DETAILS"
+						}
 					}
 				]
 			}
