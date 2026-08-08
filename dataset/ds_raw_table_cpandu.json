@@ -2,7 +2,7 @@
 	"name": "ds_raw_table_cpandu",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "ls_sqlserver_cpandu",
+			"referenceName": "AzureSqlDatabase1",
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {

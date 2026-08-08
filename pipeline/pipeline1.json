@@ -125,10 +125,6 @@
 										"src_dir": {
 											"value": "@pipeline().parameters.src_dir",
 											"type": "Expression"
-										},
-										"file_dir": {
-											"value": "@item().name",
-											"type": "Expression"
 										}
 									}
 								}
@@ -136,17 +132,7 @@
 							"outputs": [
 								{
 									"referenceName": "ds_raw_table_cpandu",
-									"type": "DatasetReference",
-									"parameters": {
-										"schema_name": {
-											"value": "@pipeline().parameters.schema_name",
-											"type": "Expression"
-										},
-										"table_name": {
-											"value": "@concat(toupper(split(item().name, '.')[0]), '_cpandu')",
-											"type": "Expression"
-										}
-									}
+									"type": "DatasetReference"
 								}
 							]
 						}
