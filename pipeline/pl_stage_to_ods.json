@@ -290,13 +290,13 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "SELECT\n    N.NATIONKEY,\n    N.NAME,\n    R.REGIONKEY,\n    R.NAME  AS REGION_NAME,\n    GETDATE() AS INSERT_DATE\nFROM\n    STG.NATION_cpandu N\nJOIN\n   STG.REGION_cpandu R ON N.REGIONKEY = R.REGIONKEY;\n",
+						"sqlReaderQuery": "SELECT\n    N.NATIONKEY,\n    N.NAME,\n    R.REGIONKEY,\n    R.NAME  AS REGION_NAME,\n    GETDATE() AS INSERT_DATE\nFROM\n    STG.NATION N\nJOIN\n   STG.REGION R ON N.REGIONKEY = R.REGIONKEY;\n",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
 					"sink": {
 						"type": "AzureSqlSink",
-						"preCopyScript": "delete from ODS.NATION_REGION_DETAILS_cpandu;",
+						"preCopyScript": "delete from ODS.NATION_REGION_DETAILS;",
 						"writeBehavior": "insert",
 						"sqlWriterUseTableLock": false,
 						"disableMetricsCollection": false
