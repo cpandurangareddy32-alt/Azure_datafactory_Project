@@ -17,13 +17,13 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "SELECT\r\n    CUSTKEY,\r\n    NAME,\r\n    ADDRESS,\r\n    NATIONKEY,\r\n    PHONE,\r\n    ACCTBAL,\r\n    MKTSEGMENT,\r\n    COMMENT,\r\n    CASE\r\n        WHEN ACCTBAL > 10000 THEN 'High Value'\r\n        WHEN ACCTBAL BETWEEN 5000 AND 10000 THEN 'Medium Value'\r\n        ELSE 'Low Value'\r\n    END AS CUSTOMER_SEGMENT,\r\n    GETDATE() AS INSERT_DATE\r\nFROM STG.customer_cpandu;\r\n",
+						"sqlReaderQuery": "SELECT\r\n    CUSTKEY,\r\n    NAME,\r\n    ADDRESS,\r\n    NATIONKEY,\r\n    PHONE,\r\n    ACCTBAL,\r\n    MKTSEGMENT,\r\n    COMMENT,\r\n    CASE\r\n        WHEN ACCTBAL > 10000 THEN 'High Value'\r\n        WHEN ACCTBAL BETWEEN 5000 AND 10000 THEN 'Medium Value'\r\n        ELSE 'Low Value'\r\n    END AS CUSTOMER_SEGMENT,\r\n    GETDATE() AS INSERT_DATE\r\nFROM STG.customer;\r\n",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
 					"sink": {
 						"type": "AzureSqlSink",
-						"preCopyScript": "delete from ods.customer_cpandu;",
+						"preCopyScript": "delete from ods.customer;",
 						"writeBehavior": "insert",
 						"sqlWriterUseTableLock": false,
 						"disableMetricsCollection": false
@@ -41,27 +41,13 @@
 				"inputs": [
 					{
 						"referenceName": "ds_raw_table_cpandu",
-						"type": "DatasetReference",
-						"parameters": {
-							"schema_name": "STG",
-							"table_name": "customer_cpandu"
-						}
+						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
 						"referenceName": "ds_raw_table_cpandu",
-						"type": "DatasetReference",
-						"parameters": {
-							"schema_name": {
-								"value": "@pipeline().parameters.ODS_schema_name",
-								"type": "Expression"
-							},
-							"table_name": {
-								"value": "@pipeline().parameters.ODS_customer_name",
-								"type": "Expression"
-							}
-						}
+						"type": "DatasetReference"
 					}
 				]
 			},
@@ -87,13 +73,13 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "SELECT\n    ORDERKEY,\n    CUSTKEY,\n    ORDERSTATUS,\n    TOTALPRICE,\n    ORDERDATE,\n    ORDERPRIORITY,\n    CLERK,\n    SHIPPRIORITY,\n    COMMENT,\n    TOTALPRICE * 0.1 AS ORDER_PROFIT, -- Assuming 10% profit margin\n    GETDATE() AS INSERT_DATE\nFROM STG.ORDERS_cpandu;\n",
+						"sqlReaderQuery": "SELECT\n    ORDERKEY,\n    CUSTKEY,\n    ORDERSTATUS,\n    TOTALPRICE,\n    ORDERDATE,\n    ORDERPRIORITY,\n    CLERK,\n    SHIPPRIORITY,\n    COMMENT,\n    TOTALPRICE * 0.1 AS ORDER_PROFIT, -- Assuming 10% profit margin\n    GETDATE() AS INSERT_DATE\nFROM STG.ORDERS;\n",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
 					"sink": {
 						"type": "AzureSqlSink",
-						"preCopyScript": "delete from ODS.ORDERS_cpandu;",
+						"preCopyScript": "delete from ODS.ORDERS;",
 						"writeBehavior": "insert",
 						"sqlWriterUseTableLock": false,
 						"disableMetricsCollection": false
@@ -111,21 +97,13 @@
 				"inputs": [
 					{
 						"referenceName": "ds_raw_table_cpandu",
-						"type": "DatasetReference",
-						"parameters": {
-							"schema_name": "STG",
-							"table_name": "ORDERS_cpandu"
-						}
+						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
 						"referenceName": "ds_raw_table_cpandu",
-						"type": "DatasetReference",
-						"parameters": {
-							"schema_name": "ODS",
-							"table_name": "ORDERS_cpandu"
-						}
+						"type": "DatasetReference"
 					}
 				]
 			},
@@ -151,13 +129,13 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "SELECT\n    PARTKEY,\n    NAME,\n    MFGR,\n    BRAND,\n    TYPE,\n    SIZE,\n    CONTAINER,\n    RETAILPRICE,\n    COMMENT,\n   \n    0.1 AS PROFIT_MARGIN, -- Assuming a 10% profit margin\n    GETDATE() AS INSERT_DATE\nFROM STG.PART_cpandu;\n",
+						"sqlReaderQuery": "SELECT\n    PARTKEY,\n    NAME,\n    MFGR,\n    BRAND,\n    TYPE,\n    SIZE,\n    CONTAINER,\n    RETAILPRICE,\n    COMMENT,\n   \n    0.1 AS PROFIT_MARGIN, -- Assuming a 10% profit margin\n    GETDATE() AS INSERT_DATE\nFROM STG.PART;\n",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
 					"sink": {
 						"type": "AzureSqlSink",
-						"preCopyScript": "delete from ODS.PART_cpandu;",
+						"preCopyScript": "delete from ODS.PART;",
 						"writeBehavior": "insert",
 						"sqlWriterUseTableLock": false,
 						"disableMetricsCollection": false
@@ -175,21 +153,13 @@
 				"inputs": [
 					{
 						"referenceName": "ds_raw_table_cpandu",
-						"type": "DatasetReference",
-						"parameters": {
-							"schema_name": "STG",
-							"table_name": "part_cpandu"
-						}
+						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
 						"referenceName": "ds_raw_table_cpandu",
-						"type": "DatasetReference",
-						"parameters": {
-							"schema_name": "ODS",
-							"table_name": "PART_cpandu"
-						}
+						"type": "DatasetReference"
 					}
 				]
 			},
@@ -215,13 +185,13 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "SELECT\n    SUPPKEY,\n    NAME,\n    ADDRESS,\n    NATIONKEY,\n    PHONE,\n    ACCTBAL,\n    COMMENT,\n    CASE\n        WHEN ACCTBAL > 10000 THEN 5  -- High Rating\n        WHEN ACCTBAL BETWEEN 5000 AND 10000 THEN 3  -- Medium Rating\n        ELSE 1  -- Low Rating\n    END AS SUPPLIER_RATING,\n    GETDATE() AS INSERT_DATE\nFROM STG.SUPPLIER_cpandu;\n",
+						"sqlReaderQuery": "SELECT\n    SUPPKEY,\n    NAME,\n    ADDRESS,\n    NATIONKEY,\n    PHONE,\n    ACCTBAL,\n    COMMENT,\n    CASE\n        WHEN ACCTBAL > 10000 THEN 5  -- High Rating\n        WHEN ACCTBAL BETWEEN 5000 AND 10000 THEN 3  -- Medium Rating\n        ELSE 1  -- Low Rating\n    END AS SUPPLIER_RATING,\n    GETDATE() AS INSERT_DATE\nFROM STG.SUPPLIER;\n",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
 					"sink": {
 						"type": "AzureSqlSink",
-						"preCopyScript": "delete from ODS.SUPPLIER_cpandu;",
+						"preCopyScript": "delete from ODS.SUPPLIER;",
 						"writeBehavior": "insert",
 						"sqlWriterUseTableLock": false,
 						"disableMetricsCollection": false
@@ -239,21 +209,13 @@
 				"inputs": [
 					{
 						"referenceName": "ds_raw_table_cpandu",
-						"type": "DatasetReference",
-						"parameters": {
-							"schema_name": "STG",
-							"table_name": "supplier_cpandu"
-						}
+						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
 						"referenceName": "ds_raw_table_cpandu",
-						"type": "DatasetReference",
-						"parameters": {
-							"schema_name": "ODS",
-							"table_name": "SUPPLIER_cpandu"
-						}
+						"type": "DatasetReference"
 					}
 				]
 			},
@@ -279,13 +241,13 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "select\n    ORDERKEY,\n    PARTKEY,\n    SUPPKEY,\n    LINENUMBER,\n    QUANTITY,\n    EXTENDEDPRICE,\n    DISCOUNT,\n    TAX,\n    RETURNFLAG,\n    LINESTATUS,\n    SHIPDATE,\n    COMMITDATE,\n    RECEIPTDATE,\n    SHIPINSTRUCT,\n    SHIPMODE,\n    COMMENT,\n    EXTENDEDPRICE * 0.1 AS PROFIT, -- Assuming a 10% profit margin\n    GETDATE() AS INSERT_DATE\nFROM STG.LINEITEM_cpandu;\n",
+						"sqlReaderQuery": "select\n    ORDERKEY,\n    PARTKEY,\n    SUPPKEY,\n    LINENUMBER,\n    QUANTITY,\n    EXTENDEDPRICE,\n    DISCOUNT,\n    TAX,\n    RETURNFLAG,\n    LINESTATUS,\n    SHIPDATE,\n    COMMITDATE,\n    RECEIPTDATE,\n    SHIPINSTRUCT,\n    SHIPMODE,\n    COMMENT,\n    EXTENDEDPRICE * 0.1 AS PROFIT, -- Assuming a 10% profit margin\n    GETDATE() AS INSERT_DATE\nFROM STG.LINEITEM;\n",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
 					"sink": {
 						"type": "AzureSqlSink",
-						"preCopyScript": "delete from ODS. LINEITEM_cpandu;",
+						"preCopyScript": "delete from ODS. LINEITEM;",
 						"writeBehavior": "insert",
 						"sqlWriterUseTableLock": false,
 						"disableMetricsCollection": false
@@ -303,21 +265,13 @@
 				"inputs": [
 					{
 						"referenceName": "ds_raw_table_cpandu",
-						"type": "DatasetReference",
-						"parameters": {
-							"schema_name": "STG",
-							"table_name": "LINEITEM_cpandu"
-						}
+						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
 						"referenceName": "ds_raw_table_cpandu",
-						"type": "DatasetReference",
-						"parameters": {
-							"schema_name": "ODS",
-							"table_name": "LINEITEM_cpandu"
-						}
+						"type": "DatasetReference"
 					}
 				]
 			},
@@ -360,21 +314,13 @@
 				"inputs": [
 					{
 						"referenceName": "ds_raw_table_cpandu",
-						"type": "DatasetReference",
-						"parameters": {
-							"schema_name": "STG",
-							"table_name": "nation_cpandu"
-						}
+						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
 						"referenceName": "ds_raw_table_cpandu",
-						"type": "DatasetReference",
-						"parameters": {
-							"schema_name": "ODS",
-							"table_name": "NATION_REGION_DETAILS_cpandu"
-						}
+						"type": "DatasetReference"
 					}
 				]
 			}
