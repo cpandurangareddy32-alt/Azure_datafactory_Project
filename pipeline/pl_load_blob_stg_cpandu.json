@@ -30,6 +30,7 @@
 					],
 					"storeSettings": {
 						"type": "AzureBlobStorageReadSettings",
+						"recursive": true,
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {
@@ -143,9 +144,6 @@
 			}
 		],
 		"parameters": {
-			"source_dir": {
-				"type": "string"
-			},
 			"schema_name": {
 				"type": "string"
 			},
