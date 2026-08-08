@@ -54,7 +54,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"schema_nm": "ODS",
-							"table_nm": "CUSTOMERS"
+							"table_nm": "CUSTOMER"
 						}
 					}
 				]
@@ -108,7 +108,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"schema_nm": "STG",
-							"table_nm": "oraders"
+							"table_nm": "orders"
 						}
 					}
 				],
